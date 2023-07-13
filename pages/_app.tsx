@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app'
 import { Provider as ReduxProvider } from 'react-redux'
 import { store } from '@/lib/redux/store'
-import '@/styles/globals.css'
 import Head from 'next/head'
+import '@/styles/globals.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
     return (
