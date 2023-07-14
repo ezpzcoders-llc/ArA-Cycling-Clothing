@@ -55,10 +55,9 @@ const DesktopNav = () => {
     return (
         <StyledDesktopNav
             backgroundColor={
-                scrollY < NAV_TRANSITION_POINT
-                    ? 'transparent'
-                    : 'var(--off-white)'
-            }>
+                scrollY < NAV_TRANSITION_POINT ? 'transparent' : '#ffffff55'
+            }
+            backgroundBlur={scrollY < NAV_TRANSITION_POINT ? '0px' : '3px'}>
             <div className="navContent">
                 <img
                     className="logo"
