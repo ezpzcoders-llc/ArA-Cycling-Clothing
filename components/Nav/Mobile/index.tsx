@@ -18,7 +18,6 @@ const MobileNav = () => {
     }
     const onHandleOpenCart = () => {
         //TODO
-        console.log('open')
         //Dispatch to open cart
     }
     useEffect(() => {
