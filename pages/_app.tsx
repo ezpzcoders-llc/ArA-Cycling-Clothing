@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { Provider as ReduxProvider } from 'react-redux'
 import { store } from '@/lib/redux/store'
 import Head from 'next/head'
+import Nav from '@/components/Nav'
 import '@/styles/globals.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -20,6 +21,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <ReduxProvider store={store}>
+                <Nav />
                 <Component {...pageProps} />
             </ReduxProvider>
         </>

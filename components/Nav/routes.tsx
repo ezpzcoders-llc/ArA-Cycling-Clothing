@@ -1,29 +1,29 @@
 export const NavItems = [
     {
         label: 'Home',
-        url: '/'
+        path: '/'
     },
     {
         label: 'About',
-        url: '/about'
+        path: '/about'
     },
     {
         label: 'Products',
-        url: '/products'
+        path: '/products'
     }
 ]
 
 export const MobileNavItems = [
     {
         label: 'Home',
-        url: '/'
+        path: '/'
     },
     {
         label: 'About',
-        url: '/about'
+        path: '/about'
     },
     {
         label: 'Products',
-        url: '/products'
+        path: '/products'
     }
 ]
