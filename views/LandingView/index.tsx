@@ -1,5 +1,24 @@
+import { useSelector } from 'react-redux'
+import { RootState } from '@/lib/redux/store'
+
+import { StyledLandingView } from './StyledLandingView'
+
 const LandingView = () => {
-    return <div>LandingView</div>
+    const data = useSelector((state: RootState) => state.homePage)
+    const {
+        heroBanner,
+        heroImg: { altText, src }
+    } = data
+
+    return (
+        <StyledLandingView>
+            <div className="heroContainer">
+                <img src={src} alt={altText} srcSet={src} className="heroImg" />
+                <h1 className="heroBanner">{heroBanner}</h1>
+            </div>
+            <div className="productContainer">Inset Product Section here</div>
+        </StyledLandingView>
+    )
 }
 
 export default LandingView
