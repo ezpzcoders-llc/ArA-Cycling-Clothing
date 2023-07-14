@@ -1,3 +1,4 @@
+import AllProductsView from '@/views/AllProductsView'
 export default function ProductsPage() {
-    return <div>Products Page</div>
+    return <AllProductsView />
 }

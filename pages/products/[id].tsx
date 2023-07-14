@@ -1,3 +1,4 @@
+import ProductView from '@/views/ProductView'
 export default function () {
-    return <div>Product Page</div>
+    return <ProductView />
 }
