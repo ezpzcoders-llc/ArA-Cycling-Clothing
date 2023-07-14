@@ -4,6 +4,7 @@ import { store } from '@/lib/redux/store'
 import Head from 'next/head'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import AuthWrapper from '@/components/AuthWrapper'
 
 import '@/styles/globals.css'
 
@@ -23,9 +24,9 @@ const App = ({ Component, pageProps }: AppProps) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <ReduxProvider store={store}>
-                <Nav />
-                <Component {...pageProps} />
-                <Footer />
+                <AuthWrapper>
+                    <Component {...pageProps} />
+                </AuthWrapper>
             </ReduxProvider>
         </>
     )
