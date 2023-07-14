@@ -84,7 +84,7 @@ export const StyledMobileNav = styled.nav`
                 transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99),
                     opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
                 @for $i from 1 through 5 {
-                    &:nth-child(#{$i}) {
+                    &:nth-of-type(#{$i}) {
                         transition-delay: #{0.56 - ($i * 0.07)}s;
                     }
                 }
@@ -141,7 +141,7 @@ export const StyledMobileNav = styled.nav`
                     transform: scale(1) translateY(0px);
                     opacity: 1;
                     @for $i from 1 through $menuItems {
-                        &:nth-child(#{$i}) {
+                        &:nth-of-type(#{$i}) {
                             transition-delay: #{0.07 * $i + 0.2}s;
                         }
                     }
