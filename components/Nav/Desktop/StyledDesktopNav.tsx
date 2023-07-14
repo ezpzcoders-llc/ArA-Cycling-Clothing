@@ -1,30 +1,22 @@
 import styled from '@emotion/styled'
 
-export const StyledDesktopNav = styled.nav`
+interface StyledDeskTopNavProps {
+    backgroundColor: string
+}
+
+export const StyledDesktopNav = styled.nav<StyledDeskTopNavProps>`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0 1rem;
     height: var(--nav-height);
-    background-color: var(--off-white);
+    background-color: ${props => props.backgroundColor};
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
     box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
-
-    &.show {
-        transition: opacity 0.5s ease-out;
-        opacity: 1;
-        z-index: 9;
-    }
-
-    &.hide {
-        transition: opacity 0.5s ease-in;
-        opacity: 0;
-        z-index: -1;
-    }
 
     .navContent {
         display: flex;
@@ -51,17 +43,16 @@ export const StyledDesktopNav = styled.nav`
                 display: inline-block;
                 position: relative;
 
-                .cartIcon {
-                    font-size: 1.3rem;
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-
                 a,
                 a:hover {
                     color: var(--off-black);
                     text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+            .cartIcon {
+                font-size: 1.3rem;
+                &:hover {
                     cursor: pointer;
                 }
             }

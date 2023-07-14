@@ -41,7 +41,7 @@ const renderNavItems = ({ currentPage }: renderNavItemProps) => {
                 )
             })}
             <li onClick={onHandleOpenCart}>
-                <ShoppingCart />
+                <ShoppingCart className="cartIcon" />
             </li>
         </ul>
     )
@@ -50,11 +50,15 @@ const NAV_TRANSITION_POINT = 10
 const DesktopNav = () => {
     const router = useRouter()
     const { pathname: currentPage } = router
-    const scrollPosition = useScrollPosition()
+    const { scrollX, scrollY } = useScrollPosition()
 
     return (
         <StyledDesktopNav
-            className={scrollPosition < NAV_TRANSITION_POINT ? 'show' : 'hide'}>
+            backgroundColor={
+                scrollY < NAV_TRANSITION_POINT
+                    ? 'transparent'
+                    : 'var(--off-white)'
+            }>
             <div className="navContent">
                 <img
                     className="logo"

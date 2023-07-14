@@ -28,7 +28,6 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    padding-top: var(--nav-height);
 }
 
 a {
