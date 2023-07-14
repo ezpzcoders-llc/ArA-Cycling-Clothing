@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useScrollPosition from '@/utils/hooks/useScrollPosition'
-import { NavItems } from '../routes'
+import { NAV_ITEMS } from '../routes'
 import { ShoppingCart } from '@mui/icons-material'
 import ArALogo from '@/assets/images/ArALogo.svg'
 import { StyledDesktopNav } from './StyledDesktopNav'
@@ -19,7 +19,7 @@ const renderNavItems = ({ currentPage }: renderNavItemProps) => {
 
     return (
         <ul className="navRoutes">
-            {NavItems.map((item, index) => {
+            {NAV_ITEMS.map((item, index) => {
                 return (
                     <li
                         key={index}

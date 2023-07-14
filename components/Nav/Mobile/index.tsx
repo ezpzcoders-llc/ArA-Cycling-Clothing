@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { MobileNavItems } from '../routes'
+import { NAV_ITEMS } from '../routes'
 import { useRouter } from 'next/router'
 import { ShoppingCart, Instagram, EmailOutlined } from '@mui/icons-material'
 
@@ -51,7 +51,7 @@ const MobileNav = () => {
                 <ul
                     className="menu"
                     style={{ display: `${show === true ? 'block' : 'none'}` }}>
-                    {MobileNavItems.map((item, index) => (
+                    {NAV_ITEMS.map((item, index) => (
                         <li
                             key={index}
                             className="menuItem"
