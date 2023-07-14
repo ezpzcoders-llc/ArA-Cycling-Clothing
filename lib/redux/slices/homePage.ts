@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { HomePageProps } from '@/utils/types/redux'
+import { HomePageProps } from '@/utils/types/storeStateProps'
 
 const initialState: HomePageProps = {
     heroImg: {
