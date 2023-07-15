@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 interface StyledDeskTopNavProps {
     backgroundColor: string
+    backgroundBlur: string
 }
 
 export const StyledDesktopNav = styled.nav<StyledDeskTopNavProps>`
@@ -13,11 +14,11 @@ export const StyledDesktopNav = styled.nav<StyledDeskTopNavProps>`
     height: var(--nav-height);
     background-color: ${props => props.backgroundColor};
     position: fixed;
+    backdrop-filter: blur(${props => props.backgroundBlur});
+
     top: 0;
     left: 0;
     z-index: 9999;
-    box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
-
     .navContent {
         display: flex;
         column-gap: 1rem;

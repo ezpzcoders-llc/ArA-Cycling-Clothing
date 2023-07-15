@@ -35,13 +35,11 @@ export const StyledLandingParralaxTrialView = styled.div`
 `
 
 export const StyledLandingView = styled.div`
-    height: 100vh;
-
     .heroContainer {
         position: relative;
         display: grid;
         place-items: center;
-        height: 100%;
+        height: 100vh;
 
         .heroImg {
             position: absolute;
@@ -63,5 +61,6 @@ export const StyledLandingView = styled.div`
     }
     .productContainer {
         background-color: white;
+        height: 40vh;
     }
 `
