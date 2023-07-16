@@ -51,9 +51,8 @@ export const StyledLandingView = styled.div`
         .heroBanner {
             font-size: 6rem;
             color: white;
-            text-shadow: 0 0 3px black;
-            font-style: italic;
-            font-weight: 400;
+
+            font-weight: 600;
             @media (max-width: 605px) {
                 font-size: 3rem;
             }
