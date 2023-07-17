@@ -4,17 +4,29 @@ export const StyledAboutView = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
+    @media (max-width: 520px) {
+        padding-top: 3rem;
+    }
     .sectionContainer {
         display: flex;
         gap: 0.5rem;
         width: 100vw;
+
+        @media (max-width: 1000px) {
+            flex-direction: column;
+            position: relative;
+        }
 
         .imageSection {
             img {
                 min-height: 100%;
                 width: 50vw;
                 object-fit: cover;
+                @media (max-width: 1000px) {
+                    min-height: 100%;
+                    width: 100vw;
+                    object-fit: cover;
+                }
             }
         }
         .textSection {
@@ -24,12 +36,31 @@ export const StyledAboutView = styled.div`
             width: 50vw;
             background-color: #bebfba;
             color: white;
+            @media (max-width: 1000px) {
+                width: 100vw;
+                position: absolute;
 
+                background: rgba(255, 255, 255, 1);
+                background: linear-gradient(180deg, #ffffff8c, #010101d9);
+
+                max-height: 100%;
+                justify-content: flex-end;
+            }
+
+            img {
+                min-height: 100%;
+                width: 50vw;
+                object-fit: cover;
+            }
             .logoContainer {
                 display: grid;
                 place-items: center;
+                @media (max-width: 1000px) {
+                    justify-items: end;
+                }
+
                 .logo {
-                    width: 50%;
+                    width: 30%;
                     flex-shrink: 1;
                 }
             }
@@ -45,17 +76,52 @@ export const StyledAboutView = styled.div`
                 flex-direction: column;
                 justify-content: flex-end;
                 padding: 5rem;
-                padding-left: 5rem;
 
-                h1 {
+                @media (max-width: 1000px) {
+                    width: 100vw;
+                }
+                @media (max-width: 580px) {
+                    padding: 3rem;
+                }
+                @media (max-width: 390px) {
+                    padding: 0.7rem;
+                }
+
+                .title {
                     color: white;
                     font-size: 5rem;
-                    font-weight: 400;
+                    font-weight: 600;
+
+                    @media (max-width: 670px) {
+                        font-size: 4rem;
+                    }
+                    @media (max-width: 580px) {
+                        font-size: 3rem;
+                    }
+                    @media (max-width: 480px) {
+                        font-size: 2rem;
+                    }
+                    @media (max-width: 420px) {
+                        font-size: 1.8rem;
+                    }
                 }
-                p {
+                .text {
                     max-width: 35rem;
-                    font-size: 1.3rem;
+                    font-size: 1.1rem;
                     font-weight: 200;
+                    @media (max-width: 670px) {
+                        font-size: 1.1rem;
+                    }
+                    @media (max-width: 580px) {
+                        font-size: 1rem;
+                    }
+                    @media (max-width: 535px) {
+                        font-size: 0.9rem;
+                        letter-spacing: 0.1px;
+                    }
+                    @media (max-width: 420px) {
+                        font-size: 0.9rem;
+                    }
                 }
             }
         }

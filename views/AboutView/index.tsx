@@ -21,16 +21,16 @@ const AboutView = () => {
                         />
                     </div>
                     <div className="textContainer">
-                        <h1>{top.largeFont}</h1>
-                        <p>{top.smallFont}</p>
+                        <h1 className="title">{top.largeFont}</h1>
+                        <p className="text">{top.smallFont}</p>
                     </div>
                 </div>
             </div>
             <div className="sectionContainer">
                 <div className="textSection">
                     <div className="textContainer + middleTextDisplay">
-                        <h1>{center.largeFont}</h1>
-                        <p>{center.smallFont}</p>
+                        <h1 className="title">{center.largeFont}</h1>
+                        <p className="text">{center.smallFont}</p>
                     </div>
                 </div>
                 <div className="imageSection">
@@ -43,8 +43,8 @@ const AboutView = () => {
                 </div>
                 <div className="textSection">
                     <div className="textContainer">
-                        <h1>{bottom.largeFont}</h1>
-                        <p>{bottom.smallFont}</p>
+                        <h1 className="title">{bottom.largeFont}</h1>
+                        <p className="text">{bottom.smallFont}</p>
                     </div>
                 </div>
             </div>
