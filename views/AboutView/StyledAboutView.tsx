@@ -108,7 +108,7 @@ export const StyledAboutView = styled.div`
                 .text {
                     max-width: 35rem;
                     font-size: 1.1rem;
-                    font-weight: 200;
+                    font-weight: 300;
                     @media (max-width: 670px) {
                         font-size: 1.1rem;
                     }
