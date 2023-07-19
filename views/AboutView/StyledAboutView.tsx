@@ -41,7 +41,7 @@ export const StyledAboutView = styled.div`
                 position: absolute;
 
                 background: rgba(255, 255, 255, 1);
-                background: linear-gradient(180deg, #ffffff8c, #010101d9);
+                background: linear-gradient(180deg, #ffffff35, #010101e1);
 
                 max-height: 100%;
                 justify-content: flex-end;
