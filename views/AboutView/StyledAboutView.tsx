@@ -10,7 +10,7 @@ export const StyledAboutView = styled.div`
     .sectionContainer {
         display: flex;
         gap: 0.5rem;
-        width: 100vw;
+        width: 100%;
 
         @media (max-width: 1000px) {
             flex-direction: column;
