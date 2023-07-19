@@ -2,8 +2,6 @@ import type { AppProps } from 'next/app'
 import { Provider as ReduxProvider } from 'react-redux'
 import { store } from '@/lib/redux/store'
 import Head from 'next/head'
-import Nav from '@/components/Nav'
-import Footer from '@/components/Footer'
 import AuthWrapper from '@/components/AuthWrapper'
 
 import '@/styles/globals.css'
