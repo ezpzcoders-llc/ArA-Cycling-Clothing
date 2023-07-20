@@ -17,7 +17,9 @@ export const Mixpanel = {
         mixpanel.track(name, props)
     },
     track_page_view: (page: string) => {
-        mixpanel.track_pageview({ page: page })
+        console.log(page)
+        //uncomment to track
+        // mixpanel.track_pageview({ page: page })
     },
     track_links: (query: Query, name: string) => {
         mixpanel.track_links(query, name, {
