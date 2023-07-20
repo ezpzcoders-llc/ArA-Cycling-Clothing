@@ -6,6 +6,7 @@ import { StyledAuthWrapper } from './StyledAuthWrapper'
 import Nav from '../Nav'
 import Footer from '../Footer'
 import { RootState } from '@/lib/redux/store'
+import { getAllCmsData } from '@/lib/db/method'
 const AuthWrapper = ({ children }: PropsWithChildren) => {
     const router = useRouter()
     const dispatch = useDispatch()
@@ -21,6 +22,11 @@ const AuthWrapper = ({ children }: PropsWithChildren) => {
             router.events.off('routeChangeComplete', handleRouteChangeComplete)
         }
     }, [router])
+
+    useEffect(() => {
+        dispatch(setLoading(true))
+        getAllCmsData(dispatch).catch(error => console.error(error))
+    })
     return (
         <StyledAuthWrapper>
             <Nav />
