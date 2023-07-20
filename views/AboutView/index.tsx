@@ -2,10 +2,18 @@ import { useSelector } from 'react-redux'
 import { StyledAboutView } from './StyledAboutView'
 import { RootState } from '@/lib/redux/store'
 import ArALogo from '@/assets/images/ArALogo.svg'
+import { Mixpanel } from '@/utils/mixpanel'
+import { useEffect } from 'react'
 
 const AboutView = () => {
     const data = useSelector((state: RootState) => state.aboutPage)
+    const loading = useSelector((state: RootState) => state.app.loading)
     const { top, bottom, center } = data
+
+    //Use effect to track page views
+    useEffect(() => {
+        if (!loading) Mixpanel.track_page_view('About')
+    }, [loading])
     return (
         <StyledAboutView>
             <div className="sectionContainer">

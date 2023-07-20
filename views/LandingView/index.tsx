@@ -1,15 +1,21 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-
+import { Mixpanel } from '@/utils/mixpanel'
 import { StyledLandingView } from './StyledLandingView'
 
 const LandingView = () => {
     const data = useSelector((state: RootState) => state.homePage)
+    const loading = useSelector((state: RootState) => state.app.loading)
     const {
         heroBanner,
         heroImg: { altText, src }
     } = data
 
+    //Use effect to track page views
+    useEffect(() => {
+        if (!loading) Mixpanel.track_page_view('Landing')
+    }, [loading])
     return (
         <StyledLandingView>
             <div className="heroContainer">
