@@ -3,6 +3,7 @@ import { Provider as ReduxProvider } from 'react-redux'
 import { store } from '@/lib/redux/store'
 import Head from 'next/head'
 import AuthWrapper from '@/components/AuthWrapper'
+import ReactGA from 'react-ga4'
 
 import '@/styles/globals.css'
 
