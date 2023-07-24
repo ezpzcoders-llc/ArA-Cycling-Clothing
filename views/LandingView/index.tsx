@@ -6,7 +6,7 @@ import { StyledLandingView } from './StyledLandingView'
 
 const LandingView = () => {
     const data = useSelector((state: RootState) => state.homePage)
-    const loading = useSelector((state: RootState) => state.app.loading)
+
     const {
         heroBanner,
         heroImg: { altText, src }
