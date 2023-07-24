@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { StyledAboutView } from './StyledAboutView'
 import { RootState } from '@/lib/redux/store'
 import ArALogo from '@/assets/images/ArALogo.svg'
+
 import { useEffect } from 'react'
 
 const AboutView = () => {

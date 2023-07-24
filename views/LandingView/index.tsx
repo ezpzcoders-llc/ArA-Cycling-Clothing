@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
+
 import { StyledLandingView } from './StyledLandingView'
 
 const LandingView = () => {
