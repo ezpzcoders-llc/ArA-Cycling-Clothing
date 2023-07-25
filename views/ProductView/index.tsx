@@ -1,7 +1,7 @@
-import ProductDisplaySection from './components/ProductDisplay'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
+import ProductDisplaySection from './components/ProductDisplay'
 
 import { StyledProductPage } from './StyledProductView'
 
@@ -15,6 +15,11 @@ const ProductView = () => {
     return (
         <StyledProductPage>
             <ProductDisplaySection data={data} productId={id} />
+            <div className="imageList">
+                {data?.imgList.map((data: any, index: number) => {
+                    return <img src={data.src} alt={data.altText} />
+                })}
+            </div>
         </StyledProductPage>
     )
 }

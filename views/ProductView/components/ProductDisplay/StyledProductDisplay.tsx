@@ -6,6 +6,7 @@ export const StyledAddProductDisplay = styled.div`
     display: flex;
     align-items: center;
     column-gap: 5rem;
+    background-color: #c0bbc1;
     @media (max-width: 1000px) {
         flex-direction: column;
         padding: 5rem 0rem 2rem 0rem;

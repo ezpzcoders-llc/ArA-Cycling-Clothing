@@ -12,7 +12,7 @@ import { StyledAddProductDisplay } from './StyledProductDisplay'
 
 const ProductDisplaySection = ({ data }: any, productId: string) => {
     const [size, setSize] = useState<string>('')
-    console.log(data)
+
     const handleSizeChange = (event: SelectChangeEvent) => {
         setSize(event.target.value)
     }
