@@ -27,57 +27,51 @@ const ProductDisplaySection = ({ data }: any, productId: string) => {
     }
     return (
         <StyledAddProductDisplay>
-            <div className="productDisplay">
-                <div className="carouselContainer">
-                    <Carousel data={data?.imgGallery} />
+            <div className="carouselContainer">
+                <Carousel data={data?.imgGallery} />
+            </div>
+            <div className="productInfo">
+                <div className="productTitle">
+                    <strong>{data?.color}</strong>
+                    <p>{data?.title}</p>
                 </div>
-                <div className="productInfo">
-                    <div className="productTitle">
-                        <strong>{data?.color}</strong>
-                        <p>{data?.title}</p>
-                    </div>
-                    <div className="productPrice">
-                        <span>{`$ ${data?.price}`}</span>
-                    </div>
-                    <div className="productAddForm">
-                        <FormControl variant="standard" sx={{ width: '100%' }}>
-                            <InputLabel
-                                id="select-size"
-                                sx={{ color: 'black' }}>
-                                Size
-                            </InputLabel>
-                            <Select
-                                sx={{
-                                    color: 'black',
-                                    '&.Mui-focused': {
-                                        color: 'black'
-                                    }
-                                }}
-                                labelId="select-size"
-                                id="select-size"
-                                value={size}
-                                onChange={handleSizeChange}
-                                label="Size">
-                                {data?.size?.map((data: any, index: number) => {
-                                    const { quantity, size, sizeSymbol } = data
-                                    if (quantity !== 0) {
-                                        return (
-                                            <MenuItem
-                                                value={sizeSymbol}
-                                                key={index}>
-                                                {size}
-                                            </MenuItem>
-                                        )
-                                    }
-                                })}
-                            </Select>
-                        </FormControl>
-                        <button
-                            disabled={size === ''}
-                            onClick={handleAddToCart}>
-                            {size === '' ? 'Select a size' : 'Add To Cart'}
-                        </button>
-                    </div>
+                <div className="productPrice">
+                    <span>{`$ ${data?.price}`}</span>
+                </div>
+                <div className="productAddForm">
+                    <FormControl variant="standard" sx={{ width: '100%' }}>
+                        <InputLabel id="select-size" sx={{ color: 'black' }}>
+                            Size
+                        </InputLabel>
+                        <Select
+                            sx={{
+                                color: 'black',
+                                '&.Mui-focused': {
+                                    color: 'black'
+                                }
+                            }}
+                            labelId="select-size"
+                            id="select-size"
+                            value={size}
+                            onChange={handleSizeChange}
+                            label="Size">
+                            {data?.size?.map((data: any, index: number) => {
+                                const { quantity, size, sizeSymbol } = data
+                                if (quantity !== 0) {
+                                    return (
+                                        <MenuItem
+                                            value={sizeSymbol}
+                                            key={index}>
+                                            {size}
+                                        </MenuItem>
+                                    )
+                                }
+                            })}
+                        </Select>
+                    </FormControl>
+                    <button disabled={size === ''} onClick={handleAddToCart}>
+                        {size === '' ? 'Select a size' : 'Add To Cart'}
+                    </button>
                 </div>
             </div>
         </StyledAddProductDisplay>
