@@ -24,6 +24,12 @@ const initialState: ProductProps[] = [
                 src: '',
                 altText: ''
             }
+        ],
+        imgGallery: [
+            {
+                src: '',
+                altText: ''
+            }
         ]
     }
 ]

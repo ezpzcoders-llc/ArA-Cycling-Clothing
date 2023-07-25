@@ -1,11 +1,9 @@
-import { useState } from 'react'
+import ProductDisplaySection from './components/ProductDisplay'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
 
 import { StyledProductPage } from './StyledProductView'
-import Link from 'next/link'
-import { Carousel } from './components/carousel'
 
 const ProductView = () => {
     const router = useRouter()
@@ -16,11 +14,7 @@ const ProductView = () => {
 
     return (
         <StyledProductPage>
-            <Link href={'/products'}>Go Back</Link>
-            <div className="productDisplay">
-                <Carousel data={data?.imgList} />
-            </div>
-            <div className="productInfo"></div>
+            <ProductDisplaySection data={data} productId={id} />
         </StyledProductPage>
     )
 }

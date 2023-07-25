@@ -19,10 +19,13 @@ export const StyledCarousel = styled.div`
 
     .arrow {
         .MuiSvgIcon-root {
-            font-size: 3rem;
+            font-size: 2rem;
             transition: all 0.4s linear;
             &:hover {
                 transform: scale(1.2);
+            }
+            @media (max-width: 400px) {
+                font-size: 1rem;
             }
         }
 
@@ -32,8 +35,17 @@ export const StyledCarousel = styled.div`
     }
 
     .img-container {
-        height: 100%;
-        width: 300px;
+        height: 400px;
+        width: 320px;
+        margin: 0rem 2rem;
+        @media (max-width: 780px) {
+            height: 340px;
+            width: 260px;
+        }
+        @media (max-width: 380px) {
+            height: 300px;
+            width: 220px;
+        }
         .img {
             width: 100%;
             height: 100%;

@@ -21,4 +21,8 @@ export interface ProductProps {
         src: string
         altText: string
     }[]
+    imgGallery: {
+        src: string
+        altText: string
+    }[]
 }
