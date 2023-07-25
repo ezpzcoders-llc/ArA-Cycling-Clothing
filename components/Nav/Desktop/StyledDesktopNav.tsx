@@ -13,11 +13,11 @@ export const StyledDesktopNav = styled.nav<StyledDeskTopNavProps>`
     padding: 0 1rem;
     height: var(--nav-height);
     background-color: ${props => props.backgroundColor};
-    position: fixed;
+    position: sticky;
     backdrop-filter: blur(${props => props.backgroundBlur});
 
     top: 0;
-    left: 0;
+
     z-index: 9999;
     .navContent {
         display: flex;
@@ -26,6 +26,7 @@ export const StyledDesktopNav = styled.nav<StyledDeskTopNavProps>`
         justify-content: space-between;
         align-content: center;
         width: 100%;
+        max-width: var(--max-width);
 
         .logo {
             width: 7rem;
