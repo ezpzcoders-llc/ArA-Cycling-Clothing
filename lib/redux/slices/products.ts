@@ -1,45 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ProductProps } from '@/utils/types/storeStateProps'
 
-const initialState: ProductProps = {
-    id: '1',
-    inStock: true,
-    name: 'Calypso Short Sleeve',
-    price: 200,
-    size: [
-        {
-            symbol: 'S',
-            quantity: 3
+const initialState: ProductProps[] = [
+    {
+        id: '',
+        inStock: null,
+        color: '',
+        title: '',
+        price: null,
+        size: [
+            {
+                size: '',
+                sizeSymbol: '',
+                quantity: null
+            }
+        ],
+        img: {
+            src: '',
+            altText: ''
         },
-        {
-            symbol: 'M',
-            quantity: 5
-        },
-        {
-            symbol: 'L',
-            quantity: 3
-        },
-        {
-            symbol: 'XL',
-            quantity: 2
-        },
-        {
-            symbol: 'XXL',
-            quantity: 2
-        },
-        {
-            symbol: 'XXXL',
-            quantity: 1
+        imgList: [
+            {
+                src: '',
+                altText: ''
+            }
+        ]
+    }
+]
+
+export const productListSlice = createSlice({
+    name: 'productList',
+    initialState,
+    reducers: {
+        setProductList: (state, { payload }: { payload: ProductProps[] }) => {
+            return (state = payload)
         }
-    ],
-    mainImg: {
-        url: 'wait',
-        altText: 'Calypso Short Sleeve'
-    },
-    allImg: [
-        {
-            url: 'img',
-            altText: 'describe'
-        }
-    ]
-}
+    }
+})
+
+export const { setProductList } = productListSlice.actions
+export default productListSlice.reducer

@@ -26,6 +26,5 @@ export const StyledLandingView = styled.div`
     }
     .productContainer {
         background-color: white;
-        height: 40vh;
     }
 `

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const StyledProductDisplay = styled.div`
+export const StyledProductDisplay = styled.a`
     width: 100%;
     height: 100%;
 

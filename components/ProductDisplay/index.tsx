@@ -2,17 +2,18 @@ import React from 'react'
 import { StyledProductDisplay } from './StyledProductDisplay'
 
 const ProductDisplay = ({ data }: any) => {
+    const { id, color, img, imgList, inStock, price, size, title } = data
     return (
-        <StyledProductDisplay>
-            <img
-                src="https://res.cloudinary.com/ezpzcoding-cloudinary/image/upload/v1690232211/ara-cycling-clothing/ipenlilqjs0b6lxrd88t.jpg"
-                alt="model jersey front"
-                className="img"
-            />
+        <StyledProductDisplay href={`/products/${id}`}>
+            <img src={img?.src} alt={img?.altText} className="img" />
             <div className="product-info">
-                <span>Unisex Summer Jersey</span>
-                <span>$200 USD</span>
-                <span>Coral</span>
+                <span>{title}</span>
+                {inStock ? (
+                    <span>{`$${price} USD`}</span>
+                ) : (
+                    <span>Sold Out</span>
+                )}
+                <span>{color}</span>
             </div>
         </StyledProductDisplay>
     )

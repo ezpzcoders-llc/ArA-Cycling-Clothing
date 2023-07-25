@@ -8,17 +8,17 @@ export interface HomePageProps {
 
 export interface ProductProps {
     id: string
-    inStock: boolean
-    name: string
-    price: number
-    size: { symbol: string; quantity: number }[]
-
-    mainImg: {
-        url: string
+    inStock: boolean | null
+    title: string
+    price: number | null
+    size: { sizeSymbol: string; size: string; quantity: number | null }[]
+    color: string
+    img: {
+        src: string
         altText: string
     }
-    allImg: {
-        url: string
+    imgList: {
+        src: string
         altText: string
     }[]
 }
