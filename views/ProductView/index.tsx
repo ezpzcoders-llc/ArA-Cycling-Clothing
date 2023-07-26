@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-import ProductGallery from '../LandingView/components/ProductGallery'
+import ProductGallery from '../../components/ProductGallery'
 import {
     ProductDisplaySection,
     DescriptionDisplaySection,

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-import ProductGallery from './components/ProductGallery'
+import ProductGallery from '../../components/ProductGallery'
 import { StyledLandingView } from './StyledLandingView'
 
 const LandingView = () => {
