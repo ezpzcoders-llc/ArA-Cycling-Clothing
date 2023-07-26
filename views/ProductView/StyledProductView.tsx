@@ -5,13 +5,7 @@ export const StyledProductPage = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: #c0bbc1;
-    .imageList {
-        min-width: 100vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 5px;
-        img {
-            width: 50vw;
-        }
+    h2 {
+        padding-top: 1rem;
     }
 `

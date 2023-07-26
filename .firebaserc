@@ -1,8 +1,0 @@
-{
-  "projects": {
-    "default": "ara-cycling-clothing",
-    "test": "ara-cycling-clothing"
-  },
-  "targets": {},
-  "etags": {}
-}

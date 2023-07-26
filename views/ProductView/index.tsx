@@ -1,10 +1,14 @@
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-import ProductDisplaySection from './components/ProductDisplay'
+import ProductGallery from '../LandingView/components/ProductGallery'
+import {
+    ProductDisplaySection,
+    DescriptionDisplaySection,
+    ImageGridDisplaySection
+} from './components'
 
 import { StyledProductPage } from './StyledProductView'
-
 const ProductView = () => {
     const router = useRouter()
     const { id } = router.query
@@ -15,11 +19,10 @@ const ProductView = () => {
     return (
         <StyledProductPage>
             <ProductDisplaySection data={data} productId={id} />
-            <div className="imageList">
-                {data?.imgList.map((data: any, index: number) => {
-                    return <img src={data.src} alt={data.altText} />
-                })}
-            </div>
+            <DescriptionDisplaySection />
+            <ImageGridDisplaySection data={data} />
+            <h2>You Might Also Like</h2>
+            <ProductGallery />
         </StyledProductPage>
     )
 }
