@@ -5,7 +5,8 @@ import ProductGallery from '../../components/ProductGallery'
 import {
     ProductDisplaySection,
     DescriptionDisplaySection,
-    ImageGridDisplaySection
+    ImageGridDisplaySection,
+    DetailsDisplaySection
 } from './components'
 
 import { StyledProductPage } from './StyledProductView'
@@ -20,6 +21,7 @@ const ProductView = () => {
         <StyledProductPage>
             <ProductDisplaySection data={data} productId={id} />
             <DescriptionDisplaySection />
+            <DetailsDisplaySection data={data?.productInfo} />
             <ImageGridDisplaySection data={data} />
             <h2>You Might Also Like</h2>
             <ProductGallery />

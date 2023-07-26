@@ -30,7 +30,20 @@ const initialState: ProductProps[] = [
                 src: '',
                 altText: ''
             }
-        ]
+        ],
+        productInfo: {
+            productDetails: {
+                label: '',
+                details: ['']
+            },
+            sizingInfo: {
+                label: '',
+                chartImage: {
+                    src: '',
+                    altText: ''
+                }
+            }
+        }
     }
 ]
 

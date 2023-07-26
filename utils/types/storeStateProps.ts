@@ -25,4 +25,17 @@ export interface ProductProps {
         src: string
         altText: string
     }[]
+    productInfo: {
+        productDetails: {
+            label: string
+            details: string[]
+        }
+        sizingInfo: {
+            label: string
+            chartImage: {
+                src: string
+                altText: string
+            }
+        }
+    }
 }

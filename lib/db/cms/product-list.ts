@@ -15,7 +15,8 @@ const getProductList = async () => {
                 price,
                 size,
                 title,
-                imgGallery
+                imgGallery,
+                productInfo
             } = doc.data()
             return {
                 id: doc.id,
@@ -26,7 +27,8 @@ const getProductList = async () => {
                 inStock,
                 price,
                 size,
-                title
+                title,
+                productInfo
             }
         })
     } catch (error) {
