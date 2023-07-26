@@ -10,6 +10,7 @@ const AboutView = () => {
 
     return (
         <StyledAboutView>
+            a
             <div className="sectionContainer">
                 <div className="imageSection">
                     <img
