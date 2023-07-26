@@ -4,7 +4,6 @@ import { ExpandMore } from '@mui/icons-material'
 import { StyledDetailsDisplay } from './StyledDetailsDisplay'
 
 const DetailsDisplaySection = ({ data }: any) => {
-    const { productDetails, sizingInfo } = data
     return (
         <StyledDetailsDisplay>
             <Accordion>
@@ -12,10 +11,10 @@ const DetailsDisplaySection = ({ data }: any) => {
                     expandIcon={<ExpandMore />}
                     aria-controls="panel1a-content"
                     id="panel1a-header">
-                    {productDetails?.label}
+                    {data?.productDetails?.label}
                 </AccordionSummary>
                 <AccordionDetails>
-                    {productDetails.details.map(
+                    {data?.productDetails.details.map(
                         (detail: string, index: number) => {
                             return <li key={index}>{detail}</li>
                         }
@@ -27,13 +26,13 @@ const DetailsDisplaySection = ({ data }: any) => {
                     expandIcon={<ExpandMore />}
                     aria-controls="panel2a-content"
                     id="panel2a-header">
-                    {sizingInfo?.label}
+                    {data?.sizingInfo?.label}
                 </AccordionSummary>
                 <AccordionDetails>
                     <img
                         className="size-image"
-                        src={sizingInfo?.chartImage?.src}
-                        alt={sizingInfo?.chartImage?.altText}
+                        src={data?.sizingInfo?.chartImage?.src}
+                        alt={data?.sizingInfo?.chartImage?.altText}
                     />
                 </AccordionDetails>
             </Accordion>
