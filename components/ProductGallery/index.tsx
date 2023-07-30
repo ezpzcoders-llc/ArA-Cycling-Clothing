@@ -1,4 +1,3 @@
-import React from 'react'
 import ProductDisplay from '@/components/ProductDisplay'
 import { StyledProductGallery } from './StyledProductGallery'
 import { RootState } from '@/lib/redux/store'
@@ -9,9 +8,9 @@ const ProductGallery = () => {
 
     return (
         <StyledProductGallery>
-            {data?.map((data, index) => {
-                return <ProductDisplay key={index} data={data} />
-            })}
+            {data?.map((data, index) => (
+                <ProductDisplay key={index} data={data} />
+            ))}
         </StyledProductGallery>
     )
 }

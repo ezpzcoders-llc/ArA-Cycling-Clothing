@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyledImageGrid } from './StyledImageGrid'
 
 const ImageGridDisplaySection = ({ data }: any) => {

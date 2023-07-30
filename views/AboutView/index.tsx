@@ -8,13 +8,15 @@ import { useEffect } from 'react'
 const AboutView = () => {
     const data = useSelector((state: RootState) => state.aboutPage)
 
+    const [bottom, center, top] = data
+
     return (
         <StyledAboutView>
             <div className="sectionContainer">
                 <div className="imageSection">
                     <img
-                        src={data[2]?.img.src}
-                        alt={data[2]?.img.altText}
+                        src={top?.img.src}
+                        alt={top?.img.altText}
                         className="image-top"
                     />
                 </div>
@@ -27,30 +29,30 @@ const AboutView = () => {
                         />
                     </div>
                     <div className="textContainer">
-                        <h1 className="title">{data?.[2]?.header}</h1>
-                        <p className="text">{data?.[2]?.text}</p>
+                        <h1 className="title">{top?.header}</h1>
+                        <p className="text">{top?.text}</p>
                     </div>
                 </div>
             </div>
             <div className="sectionContainer">
                 <div className="textSection">
                     <div className="textContainer + middleTextDisplay">
-                        <h1 className="title">{data?.[1]?.header}</h1>
-                        <p className="text">{data?.[1]?.text}</p>
+                        <h1 className="title">{center?.header}</h1>
+                        <p className="text">{center?.text}</p>
                     </div>
                 </div>
                 <div className="imageSection">
-                    <img src={data[1]?.img.src} alt={data[1]?.img.altText} />
+                    <img src={center?.img.src} alt={center?.img.altText} />
                 </div>
             </div>
             <div className="sectionContainer">
                 <div className="imageSection">
-                    <img src={data[0]?.img.src} alt={data[0]?.img.altText} />
+                    <img src={bottom?.img.src} alt={bottom?.img.altText} />
                 </div>
                 <div className="textSection">
                     <div className="textContainer">
-                        <h1 className="title">{data?.[0]?.header}</h1>
-                        <p className="text">{data?.[0]?.text}</p>
+                        <h1 className="title">{bottom?.header}</h1>
+                        <p className="text">{bottom?.text}</p>
                     </div>
                 </div>
             </div>

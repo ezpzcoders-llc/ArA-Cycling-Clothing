@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyledDescriptionDisplay } from './StyledDescriptionDisplay'
 const DescriptionDisplaySection = () => {
     return (

@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyledProductDisplay } from './StyledProductDisplay'
 
 const ProductDisplay = ({ data }: any) => {
