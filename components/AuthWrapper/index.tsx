@@ -1,9 +1,32 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/router'
+import { setLoading } from '@/lib/redux/slices/app'
 import { StyledAuthWrapper } from './StyledAuthWrapper'
 import Nav from '../Nav'
 import Footer from '../Footer'
+import { RootState } from '@/lib/redux/store'
+import { getAllCmsData } from '@/lib/db/method'
 const AuthWrapper = ({ children }: PropsWithChildren) => {
-    //will use this later for Auth and loading
+    const router = useRouter()
+    const dispatch = useDispatch()
+
+    const handleRouteChangeStart = () => dispatch(setLoading(true))
+    const handleRouteChangeComplete = () => dispatch(setLoading(false))
+    useEffect(() => {
+        router.events.on('routeChangeStart', handleRouteChangeStart)
+        router.events.on('routeChangeComplete', handleRouteChangeComplete)
+
+        return () => {
+            router.events.off('routeChangeStart', handleRouteChangeStart)
+            router.events.off('routeChangeComplete', handleRouteChangeComplete)
+        }
+    }, [router])
+
+    useEffect(() => {
+        dispatch(setLoading(true))
+        getAllCmsData(dispatch).catch(error => console.error(error))
+    })
     return (
         <StyledAuthWrapper>
             <Nav />

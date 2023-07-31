@@ -4,6 +4,7 @@ import { store } from '@/lib/redux/store'
 import Head from 'next/head'
 import AuthWrapper from '@/components/AuthWrapper'
 
+import GoogleAnalytics from '@/lib/GoogleAnalytics/GoogleAnalytics'
 import '@/styles/globals.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -23,6 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             </Head>
             <ReduxProvider store={store}>
                 <AuthWrapper>
+                    <GoogleAnalytics />
                     <Component {...pageProps} />
                 </AuthWrapper>
             </ReduxProvider>

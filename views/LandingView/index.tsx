@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-
+import ProductGallery from '../../components/ProductGallery'
 import { StyledLandingView } from './StyledLandingView'
 
 const LandingView = () => {
     const data = useSelector((state: RootState) => state.homePage)
+
     const {
         heroBanner,
         heroImg: { altText, src }
@@ -17,13 +18,7 @@ const LandingView = () => {
                 <h1 className="heroBanner">{heroBanner}</h1>
             </div>
             <div className="productContainer">
-                <p>
-                    Inset Product Section here Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Enim dolorem deserunt dicta
-                    dolor sint a velit esse, tenetur amet saepe veritatis aut
-                    soluta officiis ipsam consequatur fuga ratione facere
-                    corporis.
-                </p>
+                <ProductGallery />
             </div>
         </StyledLandingView>
     )

@@ -5,3 +5,37 @@ export interface HomePageProps {
     }
     heroBanner: string
 }
+
+export interface ProductProps {
+    id: string
+    inStock: boolean | null
+    title: string
+    price: number | null
+    size: { sizeSymbol: string; size: string; quantity: number | null }[]
+    color: string
+    img: {
+        src: string
+        altText: string
+    }
+    imgList: {
+        src: string
+        altText: string
+    }[]
+    imgGallery: {
+        src: string
+        altText: string
+    }[]
+    productInfo: {
+        productDetails: {
+            label: string
+            details: string[]
+        }
+        sizingInfo: {
+            label: string
+            chartImage: {
+                src: string
+                altText: string
+            }
+        }
+    }
+}

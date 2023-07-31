@@ -3,14 +3,22 @@ import { StyledAboutView } from './StyledAboutView'
 import { RootState } from '@/lib/redux/store'
 import ArALogo from '@/assets/images/ArALogo.svg'
 
+import { useEffect } from 'react'
+
 const AboutView = () => {
     const data = useSelector((state: RootState) => state.aboutPage)
-    const { top, bottom, center } = data
+
+    const [bottom, center, top] = data
+
     return (
         <StyledAboutView>
             <div className="sectionContainer">
                 <div className="imageSection">
-                    <img src={top.img} alt="center img" className="image-top" />
+                    <img
+                        src={top?.img.src}
+                        alt={top?.img.altText}
+                        className="image-top"
+                    />
                 </div>
                 <div className="textSection">
                     <div className="logoContainer">
@@ -21,30 +29,30 @@ const AboutView = () => {
                         />
                     </div>
                     <div className="textContainer">
-                        <h1 className="title">{top.largeFont}</h1>
-                        <p className="text">{top.smallFont}</p>
+                        <h1 className="title">{top?.header}</h1>
+                        <p className="text">{top?.text}</p>
                     </div>
                 </div>
             </div>
             <div className="sectionContainer">
                 <div className="textSection">
                     <div className="textContainer + middleTextDisplay">
-                        <h1 className="title">{center.largeFont}</h1>
-                        <p className="text">{center.smallFont}</p>
+                        <h1 className="title">{center?.header}</h1>
+                        <p className="text">{center?.text}</p>
                     </div>
                 </div>
                 <div className="imageSection">
-                    <img src={center.img} alt="center img" />
+                    <img src={center?.img.src} alt={center?.img.altText} />
                 </div>
             </div>
             <div className="sectionContainer">
                 <div className="imageSection">
-                    <img src={bottom.img} alt="center img" />
+                    <img src={bottom?.img.src} alt={bottom?.img.altText} />
                 </div>
                 <div className="textSection">
                     <div className="textContainer">
-                        <h1 className="title">{bottom.largeFont}</h1>
-                        <p className="text">{bottom.smallFont}</p>
+                        <h1 className="title">{bottom?.header}</h1>
+                        <p className="text">{bottom?.text}</p>
                     </div>
                 </div>
             </div>
