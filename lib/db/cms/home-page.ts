@@ -8,7 +8,6 @@ const homePageCollection = collection(db, HOME)
 const getHomePage = async (): Promise<HomePageProps> => {
     try {
         const data = await getDocs(homePageCollection)
-
         const { heroBanner, heroImg } = data.docs[0].data()
         return {
             heroBanner,

@@ -1,14 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import app from './slices/app'
-import homePage from './slices/homePage'
-import aboutPage from './slices/aboutPage'
+
 import productList from './slices/products'
 
 export const store = configureStore({
     reducer: {
         app,
-        homePage,
-        aboutPage,
         productList
     }
 })
