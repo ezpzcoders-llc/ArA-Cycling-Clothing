@@ -1,11 +1,8 @@
-import { useSelector } from 'react-redux'
-import { RootState } from '@/lib/redux/store'
+import { HomePageProps } from '@/utils/types/storeStateProps'
 import ProductGallery from '../../components/ProductGallery'
 import { StyledLandingView } from './StyledLandingView'
 
-const LandingView = () => {
-    const data = useSelector((state: RootState) => state.homePage)
-
+const LandingView = ({ data }: { data: HomePageProps }) => {
     const {
         heroBanner,
         heroImg: { altText, src }

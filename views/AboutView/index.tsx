@@ -1,13 +1,9 @@
-import { useSelector } from 'react-redux'
+import { AboutPageProps } from '@/utils/types/storeStateProps'
 import { StyledAboutView } from './StyledAboutView'
-import { RootState } from '@/lib/redux/store'
+
 import ArALogo from '@/assets/images/ArALogo.svg'
 
-import { useEffect } from 'react'
-
-const AboutView = () => {
-    const data = useSelector((state: RootState) => state.aboutPage)
-
+const AboutView = ({ data }: { data: AboutPageProps[] }) => {
     const [bottom, center, top] = data
 
     return (
