@@ -6,6 +6,7 @@ import { StyledAuthWrapper } from './StyledAuthWrapper'
 import Nav from '../Nav'
 import Footer from '../Footer'
 import { RootState } from '@/lib/redux/store'
+
 import { getAllCmsData } from '@/lib/db/method'
 const AuthWrapper = ({ children }: PropsWithChildren) => {
     const router = useRouter()

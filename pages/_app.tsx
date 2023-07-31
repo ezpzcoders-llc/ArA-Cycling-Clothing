@@ -22,6 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
             <ReduxProvider store={store}>
                 <AuthWrapper>
                     <GoogleAnalytics />
