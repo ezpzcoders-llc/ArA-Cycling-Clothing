@@ -6,6 +6,15 @@ export interface HomePageProps {
     heroBanner: string
 }
 
+export interface AboutPageProps {
+    header: ''
+    text: ''
+    img: {
+        src: ''
+        altText: ''
+    }
+}
+
 export interface ProductProps {
     id: string
     inStock: boolean | null
