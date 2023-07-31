@@ -23,7 +23,10 @@ const ProductDisplaySection = ({ data }: any, productId: string) => {
             color: data?.color,
             title: data?.title
         }
-        console.log('Card Data', cartData)
+        window.gtag('event', 'click', {
+            event_category: 'button_click',
+            event_label: 'Add to cart'
+        })
     }
     return (
         <StyledAddProductDisplay>
