@@ -1,7 +1,6 @@
 import { HomePageProps } from '@/utils/types/storeStateProps'
 import ProductGallery from '../../components/ProductGallery'
 import { StyledLandingView } from './StyledLandingView'
-import { supabase } from '@/lib/supabase'
 
 const LandingView = ({ data }: { data: HomePageProps }) => {
     const {

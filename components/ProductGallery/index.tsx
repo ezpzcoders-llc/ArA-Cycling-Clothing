@@ -1,14 +1,48 @@
 import ProductDisplay from '@/components/ProductDisplay'
 import { StyledProductGallery } from './StyledProductGallery'
-import { RootState } from '@/lib/redux/store'
-import { useSelector } from 'react-redux'
+import { supabase } from '@/lib/supabase'
+import { useEffect, useState } from 'react'
+
+interface ProductData {
+    id: any
+    color: any
+    price: any
+    title: any
+    product_images: {
+        image_src: any
+        image_alt_text: any
+    }[]
+}
 
 const ProductGallery = () => {
-    const data = useSelector((state: RootState) => state.productList)
+    const [products, setProducts] = useState<ProductData[]>([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select(
+                        `id, color, price, title,
+                        product_images(image_src, image_alt_text)`
+                    )
+                    .eq(`product_images.image_type`, `main`)
+                if (error) {
+                    console.error(error)
+                    return
+                }
+                setProducts(data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        fetchData()
+    }, [])
 
     return (
         <StyledProductGallery>
-            {data?.map((data, index) => (
+            {products?.map((data, index) => (
                 <ProductDisplay key={index} data={data} />
             ))}
         </StyledProductGallery>
