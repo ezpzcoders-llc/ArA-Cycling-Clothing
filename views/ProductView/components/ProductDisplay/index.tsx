@@ -28,10 +28,11 @@ const ProductDisplaySection = ({ data }: any, productId: string) => {
             event_label: 'Add to cart'
         })
     }
+
     return (
         <StyledAddProductDisplay>
             <div className="carouselContainer">
-                <Carousel data={data?.imgGallery} />
+                <Carousel data={data?.product_images} />
             </div>
             <div className="productInfo">
                 <div className="productTitle">
@@ -58,18 +59,21 @@ const ProductDisplaySection = ({ data }: any, productId: string) => {
                             value={size}
                             onChange={handleSizeChange}
                             label="Size">
-                            {data?.size?.map((data: any, index: number) => {
-                                const { quantity, size, sizeSymbol } = data
-                                if (quantity !== 0) {
-                                    return (
-                                        <MenuItem
-                                            value={sizeSymbol}
-                                            key={index}>
-                                            {size}
-                                        </MenuItem>
-                                    )
+                            {data?.product_inventory?.map(
+                                (data: any, index: number) => {
+                                    const { product_quantity, product_size } =
+                                        data
+                                    if (product_quantity !== 0) {
+                                        return (
+                                            <MenuItem
+                                                value={product_size}
+                                                key={index}>
+                                                {product_size}
+                                            </MenuItem>
+                                        )
+                                    }
                                 }
-                            })}
+                            )}
                         </Select>
                     </FormControl>
                     <button disabled={size === ''} onClick={handleAddToCart}>

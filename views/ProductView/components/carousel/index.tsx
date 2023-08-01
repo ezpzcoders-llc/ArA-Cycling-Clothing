@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { StyledCarousel } from './StyledCarousel'
 import { ArrowForwardIos, ArrowBackIos } from '@mui/icons-material'
-
+const CAROUSEL = 'carousel'
 export const Carousel = ({ data }: any) => {
     const [activeImg, setActiveImg] = useState<number>(0)
 
@@ -31,19 +31,23 @@ export const Carousel = ({ data }: any) => {
                 <ArrowBackIos />
             </div>
             <div className="img-container">
-                {data?.map((data: any, index: number) => {
-                    return (
-                        <img
-                            style={{
-                                display: `${index !== activeImg ? 'none' : ''}`
-                            }}
-                            src={data.src}
-                            alt={data.altText}
-                            key={index}
-                            className="img"
-                        />
-                    )
-                })}
+                {data
+                    ?.filter((image: any) => image.image_type === CAROUSEL)
+                    .map((data: any, index: number) => {
+                        return (
+                            <img
+                                style={{
+                                    display: `${
+                                        index !== activeImg ? 'none' : 'block'
+                                    }`
+                                }}
+                                src={data.image_src}
+                                alt={data.image_alt_text}
+                                key={index}
+                                className="img"
+                            />
+                        )
+                    })}
             </div>
             <div className="arrow" onClick={getNextImg}>
                 <ArrowForwardIos />

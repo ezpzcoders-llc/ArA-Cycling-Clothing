@@ -1,21 +1,12 @@
-import ProductDisplay from '@/components/ProductDisplay'
-import { StyledProductGallery } from './StyledProductGallery'
-import { supabase } from '@/lib/supabase'
 import { useEffect, useState } from 'react'
+import { ProductGalleryDataProps } from '@/utils/types/storeStateProps'
+import { supabase } from '@/lib/supabase'
+import ProductDisplay from '@/components/ProductDisplay'
 
-interface ProductData {
-    id: any
-    color: any
-    price: any
-    title: any
-    product_images: {
-        image_src: any
-        image_alt_text: any
-    }[]
-}
+import { StyledProductGallery } from './StyledProductGallery'
 
 const ProductGallery = () => {
-    const [products, setProducts] = useState<ProductData[]>([])
+    const [products, setProducts] = useState<ProductGalleryDataProps[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
