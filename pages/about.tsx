@@ -70,6 +70,5 @@ export default function AboutPage({
         center: AboutPageProps
     }
 }) {
-    console.log('data :>> ', data)
     return <AboutView data={data} />
 }
