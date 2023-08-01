@@ -1,10 +1,10 @@
-import { AboutPageProps } from '@/utils/types/storeStateProps'
+import { AboutDataProps } from '@/utils/types/storeStateProps'
 import { StyledAboutView } from './StyledAboutView'
 
 import ArALogo from '@/assets/images/ArALogo.svg'
 
-const AboutView = ({ data }: { data: AboutPageProps[] }) => {
-    const [bottom, center, top] = data
+const AboutView = ({ data }: { data: AboutDataProps }) => {
+    const { bottom, center, top } = data
 
     return (
         <StyledAboutView>

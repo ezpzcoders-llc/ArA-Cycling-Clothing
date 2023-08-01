@@ -15,6 +15,12 @@ export interface AboutPageProps {
     }
 }
 
+export interface AboutDataProps {
+    top: AboutPageProps
+    bottom: AboutPageProps
+    center: AboutPageProps
+}
+
 export interface ProductProps {
     id: string
     inStock: boolean | null
