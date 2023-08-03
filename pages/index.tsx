@@ -1,33 +1,17 @@
-import { supabase } from '@/lib/supabase'
+import { getHomePageData } from '@/lib/db/cms/home-page'
 import { HomePageProps } from '@/utils/types/storeStateProps'
 import LandingView from '@/views/LandingView'
 
 export async function getStaticProps() {
     try {
-        const { data, error } = await supabase
-            .from('home_page')
-            .select('heroBanner, heroImgAltText, heroImgSrc')
-
-        if (error) throw error
-
+        const data = await getHomePageData()
         return {
             props: {
-                data: {
-                    heroBanner: data[0].heroBanner,
-                    heroImg: {
-                        altText: data[0].heroImgAltText,
-                        src: data[0].heroImgSrc
-                    }
-                }
+                data
             }
         }
     } catch (error) {
         console.error(error)
-        return {
-            props: {
-                data: {}
-            }
-        }
     }
 }
 export default function Home({ data }: { data: HomePageProps }) {

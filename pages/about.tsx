@@ -1,61 +1,38 @@
-import { supabase } from '@/lib/supabase'
+import { getAboutPageData } from '@/lib/db/cms/about-page'
 import { AboutPageProps } from '@/utils/types/storeStateProps'
+import ErrorPage from '@/views/404View'
+
 import AboutView from '@/views/AboutView'
-const emptyAboutPage: AboutPageProps = {
-    header: '',
-    text: '',
-    img: {
-        src: '',
-        altText: ''
-    }
-}
-type AboutSection = 'top' | 'bottom' | 'center'
+
 export async function getStaticProps() {
     try {
-        const { data, error } = await supabase
-            .from('about_page')
-            .select('section, header, text, img')
-        if (error) {
-            console.error('Error fetching data:', error)
-            return {
-                props: {
-                    data: data
-                }
-            }
-        }
-
-        const aboutData: {
-            top: AboutPageProps
-            bottom: AboutPageProps
-            center: AboutPageProps
-        } = {
-            top: emptyAboutPage,
-            bottom: emptyAboutPage,
-            center: emptyAboutPage
-        }
-
-        if (data && data.length > 0) {
-            data.forEach(sectionData => {
-                const section: AboutSection =
-                    sectionData.section as AboutSection
-                aboutData[section] = {
-                    header: sectionData.header,
-                    text: sectionData.text,
-                    img: sectionData.img
-                }
-            })
-        }
-
+        const data = await getAboutPageData()
         return {
             props: {
-                data: aboutData
+                data
             }
         }
     } catch (error) {
+        //need to come up with a better way to do this im sure . should we work on setting a standard for ezpz error handling ?
+        // i know i shouldnt wrtie in comments like this to you but i know youre gonna see it so hi phil
+        //text me when you see me
+        /* 
+            also dont worry i know i can comment like this for multiple lines
+            ... new ? 
+            newwwwwwwww
+            l
+            i
+            n
+            e
+        */
         console.error(error)
         return {
             props: {
-                data: null
+                data: {
+                    top: null,
+                    bottom: null,
+                    center: null
+                }
             }
         }
     }
@@ -70,5 +47,9 @@ export default function AboutPage({
         center: AboutPageProps
     }
 }) {
+    if (!data) {
+        //actually talk about how to handle this
+        return <ErrorPage code={420} />
+    }
     return <AboutView data={data} />
 }
