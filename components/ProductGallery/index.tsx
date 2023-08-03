@@ -4,31 +4,18 @@ import { supabase } from '@/lib/supabase'
 import ProductDisplay from '@/components/ProductDisplay'
 
 import { StyledProductGallery } from './StyledProductGallery'
+import { getProductGalleryData } from '@/lib/db/cms/product-list'
 
 const ProductGallery = () => {
     const [products, setProducts] = useState<ProductGalleryDataProps[]>([])
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('products')
-                    .select(
-                        `id, color, price, title,
-                        product_images(image_src, image_alt_text)`
-                    )
-                    .eq(`product_images.image_type`, `main`)
-                if (error) {
-                    console.error(error)
-                    return
-                }
-                setProducts(data)
-            } catch (error) {
-                console.error(error)
-            }
-        }
+    const getProductData = async () => {
+        const data = await getProductGalleryData()
+        setProducts(data as ProductGalleryDataProps[])
+    }
 
-        fetchData()
+    useEffect(() => {
+        getProductData()
     }, [])
 
     return (

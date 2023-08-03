@@ -17,7 +17,7 @@ const getHomePageData = async () => {
         }
     } catch (error) {
         console.error(error)
-        return {}
+        return null
     }
 }
 
