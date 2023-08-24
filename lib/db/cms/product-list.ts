@@ -1,49 +1,23 @@
-import { getDocs, collection, doc, addDoc } from 'firebase/firestore'
-import { db } from '../config'
-const PRODUCT_LIST = 'product-list'
-const productListCollection = collection(db, PRODUCT_LIST)
+import { supabase } from '@/lib/supabase'
 
-const getProductList = async () => {
+const getProductGalleryData = async () => {
     try {
-        const data = await getDocs(productListCollection)
-        return data.docs.map(doc => {
-            const {
-                color,
-                img,
-                imgList,
-                inStock,
-                price,
-                size,
-                title,
-                imgGallery,
-                productInfo
-            } = doc.data()
-            return {
-                id: doc.id,
-                color,
-                img,
-                imgList,
-                imgGallery,
-                inStock,
-                price,
-                size,
-                title,
-                productInfo
-            }
-        })
+        const { data, error } = await supabase
+            .from('products')
+            .select(
+                `id, color, price, title,
+                        product_images(image_src, image_alt_text)`
+            )
+            .eq(`product_images.image_type`, `main`)
+        if (error) {
+            console.error(error)
+            return
+        }
+        return data
     } catch (error) {
-        throw error
+        console.error(error)
+        return null
     }
 }
 
-const createProduct = async (payload: any) => {
-    try {
-        await addDoc(productListCollection, {
-            ...payload
-        })
-    } catch (error) {
-        throw error
-    }
-}
-
-export { getProductList }
+export { getProductGalleryData }

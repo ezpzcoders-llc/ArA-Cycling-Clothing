@@ -3,7 +3,10 @@ import { ExpandMore } from '@mui/icons-material'
 
 import { StyledDetailsDisplay } from './StyledDetailsDisplay'
 
-const DetailsDisplaySection = ({ data }: any) => {
+const DetailsDisplaySection = ({
+    product_details,
+    product_sizing_info
+}: any) => {
     return (
         <StyledDetailsDisplay>
             <Accordion>
@@ -11,12 +14,12 @@ const DetailsDisplaySection = ({ data }: any) => {
                     expandIcon={<ExpandMore />}
                     aria-controls="panel1a-content"
                     id="panel1a-header">
-                    {data?.productDetails?.label}
+                    Product Details
                 </AccordionSummary>
                 <AccordionDetails>
-                    {data?.productDetails.details.map(
-                        (detail: string, index: number) => {
-                            return <li key={index}>{detail}</li>
+                    {product_details?.map(
+                        (detail: { product_detail: string }, index: number) => {
+                            return <li key={index}>{detail.product_detail}</li>
                         }
                     )}
                 </AccordionDetails>
@@ -26,13 +29,13 @@ const DetailsDisplaySection = ({ data }: any) => {
                     expandIcon={<ExpandMore />}
                     aria-controls="panel2a-content"
                     id="panel2a-header">
-                    {data?.sizingInfo?.label}
+                    Size Help
                 </AccordionSummary>
                 <AccordionDetails>
                     <img
                         className="size-image"
-                        src={data?.sizingInfo?.chartImage?.src}
-                        alt={data?.sizingInfo?.chartImage?.altText}
+                        src={product_sizing_info?.size_chart_img_src}
+                        alt={product_sizing_info?.size_chart_img_altText}
                     />
                 </AccordionDetails>
             </Accordion>

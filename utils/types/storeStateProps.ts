@@ -15,6 +15,23 @@ export interface AboutPageProps {
     }
 }
 
+export interface AboutDataProps {
+    top: AboutPageProps
+    bottom: AboutPageProps
+    center: AboutPageProps
+}
+
+export interface ProductGalleryDataProps {
+    id: number
+    color: string
+    price: number
+    title: string
+    product_images: {
+        image_src: string
+        image_alt_text: string
+    }[]
+}
+
 export interface ProductProps {
     id: string
     inStock: boolean | null

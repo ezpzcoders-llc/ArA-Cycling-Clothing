@@ -1,21 +1,24 @@
-import { collection, getDocs } from 'firebase/firestore'
-import { db } from '../config'
-import { HomePageProps } from '@/utils/types/storeStateProps'
+import { supabase } from '@/lib/supabase'
 
-const HOME = 'home-page'
-const homePageCollection = collection(db, HOME)
-
-const getHomePage = async (): Promise<HomePageProps> => {
+const getHomePageData = async () => {
     try {
-        const data = await getDocs(homePageCollection)
-        const { heroBanner, heroImg } = data.docs[0].data()
+        const { data, error } = await supabase
+            .from('home_page')
+            .select('heroBanner, heroImgAltText, heroImgSrc')
+
+        if (error) throw error
+
         return {
-            heroBanner,
-            heroImg
+            heroBanner: data[0].heroBanner,
+            heroImg: {
+                altText: data[0].heroImgAltText,
+                src: data[0].heroImgSrc
+            }
         }
     } catch (error) {
-        throw error
+        console.error(error)
+        return null
     }
 }
 
-export { getHomePage }
+export { getHomePageData }
